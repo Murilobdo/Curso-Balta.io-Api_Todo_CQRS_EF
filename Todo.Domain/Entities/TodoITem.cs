@@ -1,8 +1,8 @@
 namespace Todo.Domain.Entities
 {
-    public class TodoITem : Entity
+    public class TodoItem : Entity
     {
-        public TodoITem(string title, DateTime date, string user)
+        public TodoItem(string title, DateTime date, string user)
         {
             Title = title;
             Done = false;
@@ -10,7 +10,7 @@ namespace Todo.Domain.Entities
             User = user;
         }
 
-        public TodoITem()
+        public TodoItem()
         { }
 
         public string Title { get; private set; }
