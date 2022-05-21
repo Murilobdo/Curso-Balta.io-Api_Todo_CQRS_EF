@@ -15,11 +15,11 @@ namespace Todo.Domain.Handlers
         IHandler<UpdateTodoCommand>
     {
 
-        private readonly ITodoRepository repository;
+        private readonly ITodoRepository _repository;
 
         public TodoHandler(ITodoRepository repository)
         {
-            repository = repository;
+            _repository = repository;
         }
 
         public ICommandResult Handle(CreateTodoCommand command)
@@ -31,7 +31,7 @@ namespace Todo.Domain.Handlers
 
             var todoItem = new TodoItem(command.Title, DateTime.Now, command.User);
 
-            repository.Create(todoItem);
+            _repository.Create(todoItem);
 
             return new GenericCommandResult(true, "Tarefa cadastrada !", todoItem);
         }
@@ -45,7 +45,7 @@ namespace Todo.Domain.Handlers
 
             var todoItem = new TodoItem(command.Title, DateTime.Now, command.User);
 
-            repository.Update(todoItem);
+            _repository.Update(todoItem);
 
             return new GenericCommandResult(true, "Tarefa atualizada !", todoItem);
         }

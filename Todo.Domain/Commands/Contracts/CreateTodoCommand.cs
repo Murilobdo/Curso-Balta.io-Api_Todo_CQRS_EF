@@ -8,6 +8,13 @@ public class CreateTodoCommand : Notifiable, ICommand
 	public CreateTodoCommand()
 	{ }
 
+    public CreateTodoCommand(string title, string user)
+    {
+        Title = title;
+        User = user;
+        Date = DateTime.Now;
+    }
+
     public CreateTodoCommand(string title, string user, DateTime date)
     {
         Title = title;
